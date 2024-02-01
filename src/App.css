@@ -1,8 +1,10 @@
 .image-grid {
   display: grid;
-  width: 90%;
+  align-items: center;
+  width: 100%;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px; /* Adjust the gap between images as needed */
+  margin-top: 50px;
 }
 
 .image-grid img {
@@ -10,4 +12,175 @@
   max-width: 100%;
   height: auto;
   cursor: pointer;
+}
+
+.btn {
+  align-items: center;
+  background-color: #fd9b6d;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 10px;
+  box-shadow: 2px 2px 0px 0px #000;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 11px 16px;
+  position: relative;
+  margin-top: 100px;
+}
+
+p {
+  margin-bottom: 50px;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  height: 100vh; /* Sets the height to fill the entire viewport height */
+  max-width: 500px; /* Maximum width of the div */
+  background-color: #f5f3eb; /* Background color */
+  margin: 0 auto; /* Centers the div horizontally */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center; /* Optional: This centers content inside the div vertically and horizontally */
+  box-sizing: border-box;
+}
+
+.logo {
+  max-width: 300px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.small-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+@font-face {
+  font-family: "MaruBuri"; /* Use a custom name for your font */
+  font-weight: bold;
+  src: url("./font/MaruBuri-Bold.otf") format("opentype");
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: "MaruBuri", sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }

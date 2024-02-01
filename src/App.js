@@ -3,6 +3,7 @@ import fetchData from "./api";
 import Loading from "react-loading";
 import "./App.css";
 import countRecommender from "./matchingLogic";
+import logo from "./booksfrom_logo.png";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -79,19 +80,20 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         {step === 1 && (
-          <>
-            <h1>Image Selection App</h1>
-            <p>Choose the images that match your preferences.</p>
-            <button onClick={handleStart} disabled={loading}>
+          <div>
+            <img className="logo" src={logo} alt="Logo" />
+            <p>나는 누구와 가장 비슷한 책 취향을 가지고 있을까요?</p>
+            <button className="btn" onClick={handleStart} disabled={loading}>
               {loading ? "Loading..." : "Start"}
             </button>
-          </>
+          </div>
         )}
 
         {step === 2 && (
           <>
-            <h1>Choose Images</h1>
-            <p>Select 4 images that match your preferences.</p>
+            <img className="small-logo" src={logo} alt="Logo" />
+
+            <p>읽었거나 읽고 싶었던 책을 모두 골라주세요.</p>
             <div className="image-grid">
               {data.slice((imgStep - 1) * 4, imgStep * 4).map((item) => (
                 <div key={item["제목"]}>
@@ -104,9 +106,13 @@ const App = () => {
               ))}
             </div>
             {imgStep < 6 ? (
-              <button onClick={handleImgNext}>Next</button>
+              <button className="btn" onClick={handleImgNext}>
+                Next
+              </button>
             ) : (
-              <button onClick={handleSubmit}>Submit</button>
+              <button className="btn" onClick={handleSubmit}>
+                Submit
+              </button>
             )}
           </>
         )}
