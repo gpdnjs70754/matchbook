@@ -4,6 +4,7 @@ import Loading from "react-loading";
 import "./App.css";
 import countRecommender from "./matchingLogic";
 import logo from "./booksfrom_logo.png";
+import BookGrid from "./BookGrid";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -12,6 +13,7 @@ const App = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [matchRate, setMatchRate] = useState(0);
+  const [selectedStlye, setSelectedStyle] = useState(false);
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -43,7 +45,6 @@ const App = () => {
       setSelectedImages(selectedImages.filter((url) => url !== imageUrl));
     } else {
       setSelectedImages([...selectedImages, imageUrl]);
-      // console.log(imageUrl);
     }
   };
 
@@ -95,9 +96,14 @@ const App = () => {
 
             <p>읽었거나 읽고 싶었던 책을 모두 골라주세요.</p>
             <div className="image-grid">
-              {data.slice((imgStep - 1) * 4, imgStep * 4).map((item) => (
-                <div key={item["제목"]}>
+              {data.slice((imgStep - 1) * 4, imgStep * 4).map((item, index) => (
+                <div key={index}>
                   <img
+                    className={
+                      selectedImages.includes(item["추천인"])
+                        ? "selected-img"
+                        : null
+                    }
                     src={item["표지 링크"]}
                     alt={item.Description}
                     onClick={() => handleImageSelect(item["추천인"])}

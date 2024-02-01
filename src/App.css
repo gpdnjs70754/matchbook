@@ -7,6 +7,12 @@
   margin-top: 50px;
 }
 
+.selected-img {
+  border: 1px solid;
+  border-color: #000000;
+  box-shadow: 2px 2px 0px 0px #000;
+}
+
 .image-grid img {
   width: 100%;
   max-width: 100%;
