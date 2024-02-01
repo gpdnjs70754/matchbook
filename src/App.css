@@ -14,10 +14,14 @@
 }
 
 .image-grid img {
-  width: 100%;
+  width: 155px;
+  height: 228px;
+  object-fit: cover;
   max-width: 100%;
-  height: auto;
+  border: 1px solid;
+  border-color: #d8d7d1;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .btn {
