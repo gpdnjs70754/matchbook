@@ -24,6 +24,13 @@
   border-radius: 10px;
 }
 
+.twobtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .btn {
   align-items: center;
   background-color: #fd9b6d;
@@ -37,7 +44,12 @@
   overflow: hidden;
   padding: 11px 16px;
   position: relative;
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.btn.white {
+  background-color: #fff;
 }
 
 p {
@@ -193,4 +205,17 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+ a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: #000;
 }

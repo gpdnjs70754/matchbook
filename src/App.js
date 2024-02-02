@@ -4,7 +4,7 @@ import Loading from "react-loading";
 import "./App.css";
 import countRecommender from "./matchingLogic";
 import logo from "./booksfrom_logo.png";
-import BookGrid from "./BookGrid";
+import Step3 from "./Step3";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -13,7 +13,6 @@ const App = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [matchRate, setMatchRate] = useState(0);
-  const [selectedStlye, setSelectedStyle] = useState(false);
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -54,27 +53,6 @@ const App = () => {
 
     // Move to step 3
     setStep(3);
-  };
-
-  const Step3 = () => {
-    return (
-      <>
-        <h1>Results</h1>
-        <p>Your selected images:</p>
-        <div className="image-grid">
-          {selectedImages.map((imageUrl, index) => (
-            <div key={index}>
-              <img
-                src={imageUrl}
-                alt={`Selected ${index + 1}`}
-                onClick={() => handleImageSelect(imageUrl)}
-              />
-            </div>
-          ))}
-        </div>
-        <p>Match rate: match: {matchRate}</p>
-      </>
-    );
   };
 
   return (
@@ -125,7 +103,7 @@ const App = () => {
 
         {step === 3 && (
           <>
-            <Step3 />
+            <Step3 matchRate={matchRate} />
           </>
         )}
 

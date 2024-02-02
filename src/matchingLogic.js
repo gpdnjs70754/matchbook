@@ -1,16 +1,3 @@
-// const calculateMatchRate = (userSelectedData, initialData) => {
-//   const totalSelected = userSelectedData.length;
-//   const initialCoverLinks = initialData.map((item) => item["표지 링크"]);
-
-//   const matchCount = userSelectedData.reduce((count, userSelection) => {
-//     const hasMatch = initialCoverLinks.includes(userSelection);
-//     return hasMatch ? count + 1 : count;
-//   }, 0);
-
-//   const matchRate = (matchCount / totalSelected) * 100;
-//   return matchRate;
-// };
-
 import { masterData } from "./api";
 
 const countRecommender = async (arrayA) => {
