@@ -1,5 +1,5 @@
 import logo from "./booksfrom_logo.png";
-import CopyAddressComponent from "./function/CopyAddress";
+import ShareBtn from "./function/ShareBtn";
 
 const Step3 = ({ matchRate }) => {
   return (
@@ -16,7 +16,7 @@ const Step3 = ({ matchRate }) => {
         <a href="https://bookmaster.softr.app/" className="btn white">
           다시 하기
         </a>
-        <CopyAddressComponent />
+        <ShareBtn />
       </div>
     </>
   );

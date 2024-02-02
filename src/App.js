@@ -5,6 +5,7 @@ import "./App.css";
 import countRecommender from "./matchingLogic";
 import logo from "./booksfrom_logo.png";
 import Step3 from "./Step3";
+import BookSlide from "./comfonent/BookSlide";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -13,6 +14,7 @@ const App = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [matchRate, setMatchRate] = useState(0);
+  const [slideImg, setSlideImg] = useState([]);
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -20,12 +22,16 @@ const App = () => {
       if (step === 2) {
         setLoading(true);
         const airtableData = await fetchData();
-        console.log(airtableData);
+        // console.log(airtableData);
         setData(airtableData);
         setLoading(false);
       }
     };
-
+    const fetchInitialImg = async () => {
+      const imgData = await fetchData();
+      setSlideImg(imgData);
+    };
+    fetchInitialImg();
     fetchInitialData();
   }, [step]);
 
@@ -62,6 +68,7 @@ const App = () => {
           <div>
             <img className="logo" src={logo} alt="Logo" />
             <p>나는 누구와 가장 비슷한 책 취향을 가지고 있을까요?</p>
+            <BookSlide images={slideImg} />
             <button className="btn" onClick={handleStart} disabled={loading}>
               {loading ? "Loading..." : "Start"}
             </button>

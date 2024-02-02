@@ -42,7 +42,7 @@ export const masterData = async (id) => {
     const response = await base("booklist").find(id);
     const field = response.fields;
     console.log(field["이름(한글)"]);
-    return field["이름(한글)"];
+    return [field["이름(한글)"], field[""]];
   } catch (err) {
     console.log(err, "err");
     return [];

@@ -1,0 +1,23 @@
+.image-flow-container {
+  overflow: hidden;
+  /* width: 100vw; */
+}
+
+.image-flow-wrapper {
+  display: flex;
+  animation: flowAnimation 30s linear infinite;
+  white-space: nowrap; /* Prevent images from wrapping to the next line */
+}
+
+.image-flow-item {
+  /* flex: 0 0 auto; */
+  min-width: calc(100vw / 24);
+  height: 228px;
+  margin-right: 16px; /* Adjust the margin as needed */
+}
+
+@keyframes flowAnimation {
+  100% {
+    transform: translateX(-90%);
+  }
+}

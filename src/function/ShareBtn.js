@@ -1,6 +1,6 @@
 import React from "react";
 
-const CopyAddressComponent = () => {
+const ShareBtn = () => {
   const handleCopyClick = async () => {
     try {
       // Copy the address to the clipboard
@@ -25,4 +25,4 @@ const CopyAddressComponent = () => {
   );
 };
 
-export default CopyAddressComponent;
+export default ShareBtn;
