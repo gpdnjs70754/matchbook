@@ -1,6 +1,7 @@
 .image-grid {
   display: grid;
   align-items: center;
+
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px; /* Adjust the gap between images as needed */
@@ -24,11 +25,35 @@
   border-radius: 10px;
 }
 
+.img-box {
+  position: relative;
+}
+
+.img-checked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  /* opacity: 0.7; Adjust the overlay image opacity as needed */
+  transition: opacity 0.3s ease;
+}
+
 .twobtn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+}
+
+.step1-img-box {
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .btn {

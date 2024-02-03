@@ -1,4 +1,4 @@
-import logo from "./booksfrom_logo.png";
+import logo from "./assets/booksfrom_logo.png";
 import ShareBtn from "./function/ShareBtn";
 
 const Step3 = ({ matchRate }) => {

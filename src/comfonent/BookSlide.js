@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ImageFlow.css"; // Import the CSS file with styles
+import "../css/BookSlide.css"; // Import the CSS file with styles
 
 const BookSlide = ({ images }) => {
   return (
@@ -10,7 +10,7 @@ const BookSlide = ({ images }) => {
             <img
               key={index}
               src={image["교보표지"]}
-              alt={`Image ${index}`}
+              alt={`${index}`}
               className="image-flow-item"
             />
           ))}
@@ -20,7 +20,7 @@ const BookSlide = ({ images }) => {
             <img
               key={index}
               src={image["교보표지"]}
-              alt={`Image ${index}`}
+              alt={`${index}`}
               className="image-flow-item"
             />
           ))}

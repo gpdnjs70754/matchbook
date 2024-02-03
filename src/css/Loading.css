@@ -1,0 +1,10 @@
+.image-slider-container {
+  width: 80px;
+  overflow: hidden;
+}
+
+.current-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Add a smooth transition effect between images */
+}

@@ -1,6 +1,6 @@
 .image-flow-container {
   overflow: hidden;
-  /* width: 100vw; */
+  max-width: 500px;
 }
 
 .image-flow-wrapper {
@@ -12,6 +12,7 @@
 .image-flow-item {
   /* flex: 0 0 auto; */
   min-width: calc(100vw / 24);
+  border-radius: 10px;
   height: 228px;
   margin-right: 16px; /* Adjust the margin as needed */
 }
