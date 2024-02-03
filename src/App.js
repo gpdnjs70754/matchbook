@@ -84,34 +84,41 @@ const App = () => {
         )}
 
         {step === 2 && (
-          <>
+          <div className="step2-div">
             <img className="small-logo" src={logo} alt="Logo" />
 
             <p>읽었거나 읽고 싶었던 책을 모두 골라주세요.</p>
-            <div className="image-grid">
-              {data.slice((imgStep - 1) * 4, imgStep * 4).map((item, index) => (
-                <div key={index} className="img-box">
-                  <img
-                    className={
-                      selectedImages.includes(item["추천인"])
-                        ? "selected-img"
-                        : null
-                    }
-                    src={item["표지 링크"]}
-                    alt={item.Description}
-                    onClick={() => handleImageSelect(item["추천인"])}
-                  />
-                  {selectedImages.includes(item["추천인"]) ? (
-                    <img
-                      className="img-checked"
-                      src={checkedImg}
-                      alt=""
-                      onClick={() => handleImageSelect(item["추천인"])}
-                    />
-                  ) : null}
-                </div>
-              ))}
-            </div>
+            {loading2 ? (
+              <CustomLoading />
+            ) : (
+              <div className="image-grid">
+                {data
+                  .slice((imgStep - 1) * 4, imgStep * 4)
+                  .map((item, index) => (
+                    <div key={index} className="img-box">
+                      <img
+                        className={
+                          selectedImages.includes(item["추천인"])
+                            ? "selected-img"
+                            : null
+                        }
+                        src={item["표지 링크"]}
+                        alt={item.Description}
+                        onClick={() => handleImageSelect(item["추천인"])}
+                      />
+                      {selectedImages.includes(item["추천인"]) ? (
+                        <img
+                          className="img-checked"
+                          src={checkedImg}
+                          alt=""
+                          onClick={() => handleImageSelect(item["추천인"])}
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+              </div>
+            )}
+
             {imgStep < 6 ? (
               <button className="btn" onClick={handleImgNext}>
                 Next
@@ -121,20 +128,13 @@ const App = () => {
                 Submit
               </button>
             )}
-          </>
+          </div>
         )}
 
         {step === 3 && (
           <>
             <Step3 matchRate={matchRate} />
           </>
-        )}
-
-        {loading2 && (
-          <div>
-            <Loading type="spin" color="#000" height={50} width={50} />
-            <p>Matching images, please wait...</p>
-          </div>
         )}
       </header>
     </div>
