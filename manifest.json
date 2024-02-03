@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Book Match",
+  "name": "당신의 서재는 누구와 비슷할까요?",
   "icons": [
     {
       "src": "favicon.ico",
