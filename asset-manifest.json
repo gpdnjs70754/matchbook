@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/matchbook/static/css/main.3838adac.css",
+    "main.css": "/matchbook/static/css/main.c5c30cb6.css",
     "main.js": "/matchbook/static/js/main.f12c07f2.js",
     "static/media/MaruBuri-Bold.otf": "/matchbook/static/media/MaruBuri-Bold.063fdc0633823c7eb7c0.otf",
     "static/media/MaruBuri-Regular.otf": "/matchbook/static/media/MaruBuri-Regular.87f7d3edaabb71d870ee.otf",
@@ -10,11 +10,11 @@
     "static/media/loading2.png": "/matchbook/static/media/loading2.e54c1137c8682c6bc285.png",
     "static/media/booksfrom_logo.png": "/matchbook/static/media/booksfrom_logo.627abcab18d6c2879888.png",
     "index.html": "/matchbook/index.html",
-    "main.3838adac.css.map": "/matchbook/static/css/main.3838adac.css.map",
+    "main.c5c30cb6.css.map": "/matchbook/static/css/main.c5c30cb6.css.map",
     "main.f12c07f2.js.map": "/matchbook/static/js/main.f12c07f2.js.map"
   },
   "entrypoints": [
-    "static/css/main.3838adac.css",
+    "static/css/main.c5c30cb6.css",
     "static/js/main.f12c07f2.js"
   ]
 }
