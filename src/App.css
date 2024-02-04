@@ -21,6 +21,7 @@
   height: 100vh;
 }
 .step2-div {
+  min-height: 100vh;
   height: 100%;
 }
 
