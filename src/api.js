@@ -11,7 +11,7 @@ const fetchData = async () => {
     const response = await base("booklist").select().firstPage();
     const shuffledData = shuffle(response.map((record) => record.fields));
     const selectedData = shuffledData.slice(0, 24);
-    console.log(selectedData);
+
     return selectedData;
   } catch (error) {
     console.error("Error fetching data from Airtable:", error);
@@ -37,12 +37,15 @@ const shuffle = (array) => {
   return array;
 };
 
-export const masterData = async (id) => {
+export const masterData = async (id, initialData) => {
   try {
     const response = await base("booklist").find(id);
     const field = response.fields;
-    console.log(field["이름(한글)"]);
-    return [field["이름(한글)"], field[""]];
+    const myArray = initialData.map((item) => item["추천인"]);
+    console.log(myArray);
+    const count = myArray.filter((subArray) => subArray.includes(id)).length;
+
+    return [field["이름(한글)"], field["프로필이미지"], count];
   } catch (err) {
     console.log(err, "err");
     return [];

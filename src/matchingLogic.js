@@ -1,6 +1,6 @@
 import { masterData } from "./api";
 
-const countRecommender = async (arrayA) => {
+const countRecommender = async (arrayA, initialData) => {
   const elementCount = {};
   let mostFrequentElement = null;
   let maxOccurrences = 0;
@@ -23,11 +23,10 @@ const countRecommender = async (arrayA) => {
       }
     }
   }
-  console.log(mostFrequentElement);
-  const mostRecommender = await masterData(mostFrequentElement);
-  console.log(mostRecommender);
 
-  return mostRecommender;
+  const mostRecommender = await masterData(mostFrequentElement, initialData);
+
+  return [mostRecommender, maxOccurrences];
 };
 
 export default countRecommender;

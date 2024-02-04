@@ -5,7 +5,7 @@ import load2 from "../assets/loading2.png";
 import load3 from "../assets/loading3.png";
 import load4 from "../assets/loading4.png";
 
-const CustomLoading = ({ images }) => {
+const CustomLoading = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const loadImg = [load1, load2, load3, load4];
 
@@ -15,7 +15,7 @@ const CustomLoading = ({ images }) => {
     }, 200); // Change image every 0.5 seconds
 
     return () => clearInterval(intervalId);
-  }, 4);
+  });
 
   return (
     <div className="image-slider-container">

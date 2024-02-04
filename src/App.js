@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import fetchData from "./api";
-import Loading from "react-loading";
 import "./App.css";
 import countRecommender from "./matchingLogic";
 import logo from "./assets/booksfrom_logo.png";
 import Step3 from "./Step3";
-import BookSlide from "./comfonent/BookSlide";
-import CustomLoading from "./comfonent/\bCustomLoading";
+import BookSlide from "./component/BookSlide";
+import CustomLoading from "./component/CustomLoading";
 import checkedImg from "./assets/checkd.png";
 
 const App = () => {
@@ -25,7 +24,7 @@ const App = () => {
       if (step === 2) {
         setLoading2(true);
         const airtableData = await fetchData();
-        // console.log(airtableData);
+
         setData(airtableData);
         setLoading2(false);
       }
@@ -44,9 +43,9 @@ const App = () => {
     setStep(2);
   };
 
-  const handleImgNext = () => {
-    setImgStep(imgStep + 1);
-  };
+  // const handleImgNext = () => {
+  //   setImgStep(imgStep + 1);
+  // };
 
   const handleImageSelect = (imageUrl) => {
     // Toggle selection
@@ -59,7 +58,7 @@ const App = () => {
   };
 
   const handleSubmit = async () => {
-    const calculatedMatchRate = await countRecommender(selectedImages);
+    const calculatedMatchRate = await countRecommender(selectedImages, data);
     setMatchRate(calculatedMatchRate);
 
     // Move to step 3
@@ -70,7 +69,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         {step === 1 && (
-          <div>
+          <div className="step1-div">
             <img className="logo" src={logo} alt="Logo" />
             <p>나는 누구와 가장 비슷한 책 취향을 가지고 있을까요?</p>
             <div className="step1-img-box">
@@ -124,7 +123,7 @@ const App = () => {
                 Next
               </button>
             ) : ( */}
-            <button className="btn" onClick={handleSubmit}>
+            <button className="btn step2" onClick={handleSubmit}>
               결과보기
             </button>
             {/* )} */}
@@ -133,7 +132,7 @@ const App = () => {
 
         {step === 3 && (
           <>
-            <Step3 matchRate={matchRate} />
+            <Step3 masterData={matchRate} initialData={{ data }} />
           </>
         )}
       </header>

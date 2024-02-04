@@ -8,17 +8,35 @@
   margin-top: 50px;
 }
 
-.step2-div {
+.step2-div,
+.step3-div,
+.step1-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+.step3-div,
+.step1-div {
+  height: 100vh;
+}
+.step2-div {
+  height: 100%;
 }
 
 .selected-img {
   border: 1px solid;
   border-color: #000000;
   box-shadow: 2px 2px 0px 0px #000;
+}
+
+.master-profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .image-grid img {
@@ -78,6 +96,8 @@
   margin-top: 30px;
   margin-left: 5px;
   margin-right: 5px;
+}
+.btn.step2 {
   margin-bottom: 50px;
 }
 .btn.white {
@@ -85,13 +105,14 @@
 }
 
 p {
-  margin-bottom: 50px;
+  font-weight: normal;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .App {
-  text-align: center;
   padding: 20px;
-  height: 100%; /* Sets the height to fill the entire viewport height */
+
   max-width: 500px; /* Maximum width of the div */
   background-color: #f5f3eb; /* Background color */
   margin: 0 auto; /* Centers the div horizontally */
@@ -118,6 +139,11 @@ p {
   font-weight: bold;
   src: url("./font/MaruBuri-Bold.otf") format("opentype");
 }
+@font-face {
+  font-family: "MaruBuri"; /* Use a custom name for your font */
+  font-weight: normal;
+  src: url("./font/MaruBuri-Regular.otf") format("opentype");
+}
 
 html,
 body,
@@ -126,7 +152,6 @@ span,
 applet,
 object,
 iframe,
-p,
 blockquote,
 pre,
 a,
@@ -241,6 +266,7 @@ table {
 
  a {
   text-decoration: none;
+  color: inherit;
   outline: none;
 }
 
