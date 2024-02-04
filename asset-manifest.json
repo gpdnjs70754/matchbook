@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/matchbook/static/css/main.1590f068.css",
-    "main.js": "/matchbook/static/js/main.2313ac90.js",
+    "main.css": "/matchbook/static/css/main.e64bee87.css",
+    "main.js": "/matchbook/static/js/main.8b7353a8.js",
     "static/media/MaruBuri-Bold.otf": "/matchbook/static/media/MaruBuri-Bold.063fdc0633823c7eb7c0.otf",
     "static/media/loading1.png": "/matchbook/static/media/loading1.07fdd4caa4e09cd256df.png",
     "static/media/loading3.png": "/matchbook/static/media/loading3.cb5553d02c5d5e584e44.png",
@@ -9,11 +9,11 @@
     "static/media/loading2.png": "/matchbook/static/media/loading2.e54c1137c8682c6bc285.png",
     "static/media/booksfrom_logo.png": "/matchbook/static/media/booksfrom_logo.627abcab18d6c2879888.png",
     "index.html": "/matchbook/index.html",
-    "main.1590f068.css.map": "/matchbook/static/css/main.1590f068.css.map",
-    "main.2313ac90.js.map": "/matchbook/static/js/main.2313ac90.js.map"
+    "main.e64bee87.css.map": "/matchbook/static/css/main.e64bee87.css.map",
+    "main.8b7353a8.js.map": "/matchbook/static/js/main.8b7353a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.1590f068.css",
-    "static/js/main.2313ac90.js"
+    "static/css/main.e64bee87.css",
+    "static/js/main.8b7353a8.js"
   ]
 }
