@@ -3,7 +3,7 @@
   align-items: center;
 
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px; /* Adjust the gap between images as needed */
   margin-top: 50px;
 }
@@ -78,6 +78,7 @@
   margin-top: 30px;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 50px;
 }
 .btn.white {
   background-color: #fff;
@@ -90,7 +91,7 @@ p {
 .App {
   text-align: center;
   padding: 20px;
-  height: 100vh; /* Sets the height to fill the entire viewport height */
+  height: 100%; /* Sets the height to fill the entire viewport height */
   max-width: 500px; /* Maximum width of the div */
   background-color: #f5f3eb; /* Background color */
   margin: 0 auto; /* Centers the div horizontally */

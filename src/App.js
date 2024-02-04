@@ -93,7 +93,7 @@ const App = () => {
             ) : (
               <div className="image-grid">
                 {data
-                  .slice((imgStep - 1) * 4, imgStep * 4)
+                  // .slice((imgStep - 1) * 4, imgStep * 4)
                   .map((item, index) => (
                     <div key={index} className="img-box">
                       <img
@@ -119,15 +119,15 @@ const App = () => {
               </div>
             )}
 
-            {imgStep < 6 ? (
+            {/* {imgStep < 6 ? (
               <button className="btn" onClick={handleImgNext}>
                 Next
               </button>
-            ) : (
-              <button className="btn" onClick={handleSubmit}>
-                Submit
-              </button>
-            )}
+            ) : ( */}
+            <button className="btn" onClick={handleSubmit}>
+              결과보기
+            </button>
+            {/* )} */}
           </div>
         )}
 
