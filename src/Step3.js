@@ -18,11 +18,14 @@ const Step3 = ({ masterData }) => {
         <span style={{ fontWeight: "bold" }}>{masterData[1]}</span>
         권의 도서를 선택했어요.
       </p>
-      <a href="https://bookmaster.softr.app/" className="btn">
+      <a href="https://seoro-library.softr.app/" className="btn">
         더 많은 추천 보러가기
       </a>
       <div className="twobtn">
-        <a href="https://bookmaster.softr.app/" className="btn white">
+        <a
+          href="https://gpdnjs70754.github.io/matchbook/"
+          className="btn white"
+        >
           다시 하기
         </a>
         <ShareBtn />

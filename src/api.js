@@ -8,19 +8,41 @@ var base = Airtable.base("app0SLgEfalGyJkfH");
 
 const fetchData = async () => {
   try {
-    const response = await base("booklist").select().all();
-    const responseArr = response.map((record) => record.fields);
+    const booklist = await base("booklist").select().all();
+    const masterlist = await base("masterlist").select().all();
+    const masterlistArr = masterlist.map((record) => record.id);
+
+    const booklistArr = booklist.map((record) => record.fields);
     const keyToCheck = "추천인";
-    const dataHasRecommender = responseArr.filter((obj) => keyToCheck in obj);
+    const dataHasRecommender = booklistArr.filter((obj) => keyToCheck in obj);
 
-    const shuffledData = shuffle(dataHasRecommender);
-    const selectedData = shuffledData.slice(0, 24);
+    const filteredData = getBooksByRecommender(
+      dataHasRecommender,
+      masterlistArr
+    );
+    const finalBooklist = Object.values(filteredData).flat();
+    console.log(finalBooklist);
 
-    return selectedData;
+    const shuffledData = shuffle(finalBooklist);
+    // const selectedData = shuffledData.slice(0, 24);
+
+    return shuffledData;
   } catch (error) {
     console.error("Error fetching data from Airtable:", error);
     return [];
   }
+};
+// 추천인 별로 3권의 책 랜덤으로 가져오기
+const getBooksByRecommender = (data, recommenders) => {
+  const result = {};
+
+  recommenders.forEach((recommender) => {
+    const books = data.filter((book) => book["추천인"].includes(recommender));
+    const shuffleBook = shuffle(books);
+    result[recommender] = shuffleBook.slice(0, 3);
+  });
+
+  return result;
 };
 
 // Function to shuffle an array randomly
