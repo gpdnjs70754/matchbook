@@ -5,7 +5,7 @@ import countRecommender from "./matchingLogic";
 import logo from "./assets/booksfrom_logo.png";
 import Step3 from "./Step3";
 import BookSlide from "./component/BookSlide";
-import CustomLoading from "./component/CustomLoading";
+import CustomLoading from "./component/CustomLoading";
 import checkedImg from "./assets/checkd.png";
 
 const App = () => {

@@ -8,8 +8,12 @@ var base = Airtable.base("app0SLgEfalGyJkfH");
 
 const fetchData = async () => {
   try {
-    const response = await base("booklist").select().firstPage();
-    const shuffledData = shuffle(response.map((record) => record.fields));
+    const response = await base("booklist").select().all();
+    const responseArr = response.map((record) => record.fields);
+    const keyToCheck = "추천인";
+    const dataHasRecommender = responseArr.filter((obj) => keyToCheck in obj);
+
+    const shuffledData = shuffle(dataHasRecommender);
     const selectedData = shuffledData.slice(0, 24);
 
     return selectedData;
