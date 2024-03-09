@@ -10,7 +10,10 @@
 
 .step2-div,
 .step3-div,
-.step1-div {
+.step1-div,
+.user-select-box,
+.result-box,
+.loading-box {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -125,14 +128,14 @@ p {
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 200px;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .small-logo {
-  width: 150px;
+  width: 180px;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 @font-face {

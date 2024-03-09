@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import fetchData from "./api";
 import "./App.css";
 import countRecommender from "./matchingLogic";
-import logo from "./assets/booksfrom_logo.png";
+import logo from "./assets/seoro-library_logo.png";
 import Step3 from "./Step3";
 import BookSlide from "./component/BookSlide";
 import CustomLoading from "./component/CustomLoading";
 import checkedImg from "./assets/checkd.png";
+import userSelect from "./userSelect";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -15,9 +16,12 @@ const App = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [loading2, setLoading2] = useState(false);
   const [loading1, setLoading1] = useState(false);
+  const [loading3, setLoading3] = useState(false);
   const [matchRate, setMatchRate] = useState(0);
   const [slideImg, setSlideImg] = useState([]);
+  const [masterlist, setMasterlist] = useState({});
 
+  // 최초 실행 시 불러오는 기능
   useEffect(() => {
     const fetchInitialData = async () => {
       // Fetch data only when the "Start" button is clicked
@@ -58,11 +62,17 @@ const App = () => {
   };
 
   const handleSubmit = async () => {
-    const calculatedMatchRate = await countRecommender(selectedImages, data);
-    setMatchRate(calculatedMatchRate);
-
     // Move to step 3
     setStep(3);
+    setLoading3(true);
+
+    //결과 계산하기
+    const calculatedMatchRate = await countRecommender(selectedImages, data);
+    setMatchRate(calculatedMatchRate);
+    setMasterlist(await userSelect(selectedImages));
+
+    // loading3 completed
+    setLoading3(false);
   };
 
   return (
@@ -77,7 +87,7 @@ const App = () => {
             </div>
 
             <button className="btn" onClick={handleStart}>
-              Start
+              책 고르러가기
             </button>
           </div>
         )}
@@ -97,20 +107,18 @@ const App = () => {
                     <div key={index} className="img-box">
                       <img
                         className={
-                          selectedImages.includes(item["추천인"])
-                            ? "selected-img"
-                            : null
+                          selectedImages.includes(item) ? "selected-img" : null
                         }
                         src={item["표지 링크"]}
                         alt={item.Description}
-                        onClick={() => handleImageSelect(item["추천인"])}
+                        onClick={() => handleImageSelect(item)}
                       />
-                      {selectedImages.includes(item["추천인"]) ? (
+                      {selectedImages.includes(item) ? (
                         <img
                           className="img-checked"
                           src={checkedImg}
                           alt=""
-                          onClick={() => handleImageSelect(item["추천인"])}
+                          onClick={() => handleImageSelect(item)}
                         />
                       ) : null}
                     </div>
@@ -132,7 +140,12 @@ const App = () => {
 
         {step === 3 && (
           <>
-            <Step3 masterData={matchRate} initialData={{ data }} />
+            <Step3
+              loading={loading3}
+              masterData={matchRate}
+              userData={selectedImages}
+              masterlist={masterlist}
+            />
           </>
         )}
       </header>

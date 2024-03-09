@@ -6,6 +6,20 @@ Airtable.configure({
 });
 var base = Airtable.base("app0SLgEfalGyJkfH");
 
+export const getMasterlist = async (id) => {
+  try {
+    console.log(id);
+    const masterlist = await base("masterlist").find(id);
+    console.log(masterlist);
+    // const masterName = masterlist.field["이름(한글)"];
+    // console.log(masterName);
+    return { id: "" };
+  } catch (error) {
+    console.error("Error fetching data from Airtable:", error);
+    return [];
+  }
+};
+
 const fetchData = async () => {
   try {
     const booklist = await base("booklist").select().all();
@@ -20,13 +34,15 @@ const fetchData = async () => {
       dataHasRecommender,
       masterlistArr
     );
-    const finalBooklist = Object.values(filteredData).flat();
-    console.log(finalBooklist);
+    const finalBooklist = Array.from(
+      new Set(Object.values(filteredData).flat())
+    );
 
     const shuffledData = shuffle(finalBooklist);
-    // const selectedData = shuffledData.slice(0, 24);
+    const selectedData = shuffledData.slice(0, 45);
+    console.log(selectedData);
 
-    return shuffledData;
+    return selectedData;
   } catch (error) {
     console.error("Error fetching data from Airtable:", error);
     return [];
@@ -63,12 +79,25 @@ const shuffle = (array) => {
   return array;
 };
 
+export const getMasterName = async (id) => {
+  try {
+    const response = await base("masterlist").find(id);
+    const field = response.fields;
+
+    return field["이름(한글)"];
+  } catch (err) {
+    console.log(err, "err");
+    return [];
+  }
+};
+
 export const masterData = async (id, initialData) => {
   try {
     const response = await base("booklist").find(id);
+
     const field = response.fields;
     const myArray = initialData.map((item) => item["추천인"]);
-    console.log(myArray);
+
     const count = myArray.filter((subArray) => subArray.includes(id)).length;
 
     return [field["이름(한글)"], field["프로필이미지"], count];

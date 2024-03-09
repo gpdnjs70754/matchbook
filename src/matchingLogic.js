@@ -1,13 +1,13 @@
 import { masterData } from "./api";
 
-const countRecommender = async (arrayA, initialData) => {
+const countRecommender = async (userSelected, initialData) => {
   const elementCount = {};
   let mostFrequentElement = null;
   let maxOccurrences = 0;
 
   // Iterate through each sub-array in arrayA
-  for (let i = 0; i < arrayA.length; i++) {
-    const subArrayA = arrayA[i];
+  for (let i = 0; i < userSelected.length; i++) {
+    const subArrayA = userSelected[i]["추천인"];
 
     // Iterate through each element in the sub-array
     for (let j = 0; j < subArrayA.length; j++) {
