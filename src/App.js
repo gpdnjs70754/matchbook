@@ -8,6 +8,7 @@ import BookSlide from "./component/BookSlide";
 import CustomLoading from "./component/CustomLoading";
 import checkedImg from "./assets/checkd.png";
 import userSelect from "./userSelect";
+import { Helmet } from "react-helmet-async";
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -78,6 +79,19 @@ const App = () => {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>서로의서재</title>
+        <meta
+          name="og:description"
+          content="나의 서재는 누구와 가장 비슷할까요?"
+        />
+        <meta property="og:image" content={logo} />
+        <meta property="og:type" content="website" />
+        {/* <meta
+          property="og:url"
+          content="https://gpdnjs70754.github.io/matchbook/"
+        /> */}
+      </Helmet>
       <header className="App-header">
         {step === 1 && (
           <div className="step1-div">
