@@ -26,22 +26,23 @@ const Step3 = ({ masterData, userData, loading, masterlist }) => {
             <span style={{ fontWeight: "bold" }}>{masterData[1]}</span>
             권의 도서를 선택했어요.
           </p>
-          <h4>내가 선택한 책</h4>
+          <br />
+          <br />
+          <p>[내가 선택한 책]</p>
+
           <div className="user-select-box">
+            <hr className="hairline" />
             {userData.map((item, index) => (
               <p key={index}>
-                {item["제목"]} | 추천인:{" "}
+                <span style={{ fontWeight: "bold" }}>• {item["제목"]}</span> |
+                추천인:{" "}
                 {(() => {
                   let recommenderArray = [];
 
                   const subArray = item["추천인"];
-                  console.log(subArray);
-                  console.log(masterlist);
 
                   for (let j = 0; j < subArray.length; j++) {
-                    console.log(subArray[j]);
                     const masterName = masterlist[subArray[j]];
-                    console.log(masterName);
                     recommenderArray.push(masterName);
                   }
 
