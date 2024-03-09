@@ -8,9 +8,8 @@ var base = Airtable.base("app0SLgEfalGyJkfH");
 
 export const getMasterlist = async (id) => {
   try {
-    console.log(id);
     const masterlist = await base("masterlist").find(id);
-    console.log(masterlist);
+
     // const masterName = masterlist.field["이름(한글)"];
     // console.log(masterName);
     return { id: "" };
@@ -27,7 +26,6 @@ export const fetchImgData = async () => {
 
     const shuffledData = shuffle(booklistArr);
     const selectedData = shuffledData.slice(0, 24);
-    console.log(selectedData);
 
     return selectedData;
   } catch (error) {

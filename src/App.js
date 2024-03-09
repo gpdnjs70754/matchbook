@@ -79,19 +79,19 @@ const App = () => {
 
   return (
     <div className="App">
-      <Helmet>
+      {/* <Helmet>
         <title>서로의서재</title>
         <meta
-          name="og:description"
+          property="og:description"
           content="나의 서재는 누구와 가장 비슷할까요?"
         />
         <meta property="og:image" content={logo} />
         <meta property="og:type" content="website" />
-        {/* <meta
+        <meta
           property="og:url"
           content="https://gpdnjs70754.github.io/matchbook/"
-        /> */}
-      </Helmet>
+        />
+      </Helmet> */}
       <header className="App-header">
         {step === 1 && (
           <div className="step1-div">
