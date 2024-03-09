@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import fetchData from "./api";
+import fetchData, { fetchImgData } from "./api";
 import "./App.css";
 import countRecommender from "./matchingLogic";
 import logo from "./assets/seoro-library_logo.png";
@@ -11,7 +11,6 @@ import userSelect from "./userSelect";
 
 const App = () => {
   const [step, setStep] = useState(1);
-  const [imgStep, setImgStep] = useState(1);
   const [data, setData] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   const [loading2, setLoading2] = useState(false);
@@ -34,10 +33,12 @@ const App = () => {
       }
     };
     const fetchInitialImg = async () => {
-      setLoading1(true);
-      const imgData = await fetchData();
-      setSlideImg(imgData);
-      setLoading1(false);
+      if (step === 1) {
+        setLoading1(true);
+        const imgData = await fetchImgData();
+        setSlideImg(imgData);
+        setLoading1(false);
+      }
     };
     fetchInitialImg();
     fetchInitialData();

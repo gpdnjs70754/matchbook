@@ -19,6 +19,22 @@ export const getMasterlist = async (id) => {
     return [];
   }
 };
+export const fetchImgData = async () => {
+  try {
+    const booklist = await base("booklist").select().firstPage();
+
+    const booklistArr = booklist.map((record) => record.fields);
+
+    const shuffledData = shuffle(booklistArr);
+    const selectedData = shuffledData.slice(0, 24);
+    console.log(selectedData);
+
+    return selectedData;
+  } catch (error) {
+    console.error("Error fetching data from Airtable:", error);
+    return [];
+  }
+};
 
 const fetchData = async () => {
   try {
