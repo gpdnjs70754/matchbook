@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/matchbook/static/css/main.b449413e.css",
-    "main.js": "/matchbook/static/js/main.be665f98.js",
+    "main.js": "/matchbook/static/js/main.6bfe1a89.js",
     "static/media/MaruBuri-Bold.otf": "/matchbook/static/media/MaruBuri-Bold.063fdc0633823c7eb7c0.otf",
     "static/media/MaruBuri-Regular.otf": "/matchbook/static/media/MaruBuri-Regular.87f7d3edaabb71d870ee.otf",
     "static/media/seoro-library_logo.png": "/matchbook/static/media/seoro-library_logo.58641990d48c5046958e.png",
@@ -11,10 +11,10 @@
     "static/media/loading2.png": "/matchbook/static/media/loading2.e54c1137c8682c6bc285.png",
     "index.html": "/matchbook/index.html",
     "main.b449413e.css.map": "/matchbook/static/css/main.b449413e.css.map",
-    "main.be665f98.js.map": "/matchbook/static/js/main.be665f98.js.map"
+    "main.6bfe1a89.js.map": "/matchbook/static/js/main.6bfe1a89.js.map"
   },
   "entrypoints": [
     "static/css/main.b449413e.css",
-    "static/js/main.be665f98.js"
+    "static/js/main.6bfe1a89.js"
   ]
 }
