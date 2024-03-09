@@ -1,8 +1,26 @@
 import logo from "./assets/seoro-library_logo.png";
 import CustomLoading from "./component/CustomLoading";
 import ShareBtn from "./function/ShareBtn";
+import { useState } from "react";
+import Toast from "./function/Toast";
 
 const Step3 = ({ masterData, userData, loading, masterlist }) => {
+  const [toast, setToast] = useState(false);
+  const handleCopyClick = async () => {
+    try {
+      // Copy the address to the clipboard
+      await navigator.clipboard.writeText(
+        "https://gpdnjs70754.github.io/matchbook/"
+      );
+      setToast(true);
+      console.log(
+        "Address copied to clipboard:",
+        "https://gpdnjs70754.github.io/matchbook/"
+      );
+    } catch (err) {
+      console.error("Unable to copy address to clipboard:", err);
+    }
+  };
   return (
     <div className="step3-div">
       <img className="small-logo" src={logo} alt="Logo" />
@@ -64,8 +82,14 @@ const Step3 = ({ masterData, userData, loading, masterlist }) => {
         >
           다시 하기
         </a>
-        <ShareBtn />
+        <div>
+          <div onClick={handleCopyClick} className="btn white">
+            공유하기
+          </div>
+        </div>
+        {/* <ShareBtn /> */}
       </div>
+      {toast && <Toast setToast={setToast} text="링크가 복사되었습니다." />}
     </div>
   );
 };
